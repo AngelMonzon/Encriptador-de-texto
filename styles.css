@@ -1,0 +1,431 @@
+#cargando{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0A3871;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+    flex-wrap: wrap;
+    transition: opacity 2s ease-in-out, visibility 2s linear;
+}
+#Encriptador{
+    width: 100%;
+    text-align: center;
+}
+#barra{
+    width: 50%;
+    display: block;
+}
+#barraCarga{
+    height: 15px;
+    width: 0%;
+    background-color: white;
+}
+html{
+    height: 100%;
+}
+body{
+    background-color: #E5E5E5;
+}
+section{
+    display: inline-block;
+    vertical-align: top;
+}
+.ingresar{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 70vw;
+    height: 80vh;
+}
+.ingresar img{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+.ingresar textarea{
+    display: block;
+    background-color: #E5E5E5;
+    border: none;
+    width: 50vw;
+    height: 50vh;
+    color: #0A3871;
+    font-size: 32px;
+    margin: 50px;
+    align-self: center;
+    margin-left: 100px;
+    resize: none;
+}
+.ingresar textarea:focus{
+    outline: none;
+}
+.tipo-encriptacion{
+    margin-top: 40px;
+}
+.tipo-encriptacion label{
+    color: #0A3871;
+}
+.tipo-encriptacion select{
+    border: 2px solid #0A3871;
+    border-radius: 5px;
+    color: #0A3871;
+}
+.area-botones{
+    width: 70vw;
+}
+.letras{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    width: 70vw;
+}
+.letras img, .letras p{
+    display: inline;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    height: 20vh;
+    margin-top: 15px;
+}
+.boton-encriptar{
+    background-color: #0A3871;
+    color: white;
+    padding: 1.5em;
+    width: 300px;
+    height: 80px;
+    border: 2px solid #0A3871;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color .8s ease-in-out;
+    transform-origin: center center;
+}
+.encriptacion-AES{
+    position: absolute;
+    top: 62vh;
+    padding: .5em 1.5em;
+    color: #1E2952;
+    border: 2px solid #0A3871;
+    text-align: center;
+    display: none;
+
+}
+.clave{
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 69vh;
+    padding: .5em 0;
+    color: #1E2952;
+    text-align: center;
+    width: 70vw;
+}
+.clave p, .clave input{
+    display: inline-block;
+}
+.clave input{
+    background-color: #000000;
+    color: #1E2952;
+}
+.no-texto{
+    position: absolute;
+    top: 74vh;
+    background-color: #D8DFE8;
+    border: 2px solid #0A3871;
+    border-radius: 25px;       
+    padding: .5em 1.5em;
+    color: #0A3871;      
+    text-align: center;
+    display: none;                                                                                   
+}
+.boton-desencriptar{
+    background-color: #D8DFE8;
+    color: #0A3871;
+    padding: 1.5em;
+    width: 300px;
+    height: 80px;
+    border: 2px solid #0A3871;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color .8s ease-in-out;
+    transform-origin: center center;
+}
+.boton-desencriptar:hover{
+    background-color: #d8dfe879;
+}
+.resultado{
+    position: relative;
+    text-align: center;
+    width: 22vw;
+    height: 80vh;
+    background-color: white;
+    margin: 5.6vh 1.6vh;
+    padding: 5vh 2vh;
+    border: 0.2vh solid white;
+    border-radius: 32px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.area-texto{
+    width: 100%;
+    text-align: center;
+    height: 80%;
+    padding: 10% 0px;
+}
+.imagen{
+    text-align: center;
+}
+.imagen img{
+    width: 18vw;
+    margin: 0px auto;
+}
+.texto{
+    text-align: center;
+    height: 50%;
+}
+.texto textarea{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: center;
+    font-weight: bold;
+    color: #495057;
+    border: none;
+    font-size: 1.5em;
+    resize: none;
+}
+.texto textarea:focus{
+    outline: none;
+}
+.area-copiar{
+    width: 100%;
+    height: 20%;
+    position: relative;
+}
+.boton-copiar{
+    background-color: white;
+    color: #0A3871;
+    border: 2px solid #0A3871;
+    border-radius: 24px;
+    width: 70%;
+    height: 40%;
+    padding: 5% 0px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    cursor: pointer;
+    transition: background-color .8s ease-in-out;
+    transform-origin: center center;
+}
+.boton-enviar{
+    width: 20%;
+    height: 40%;
+    padding: 0;
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    cursor: pointer;
+}
+.boton-enviar img{
+    width: auto;
+    height: auto;
+}
+.enviar-opciones{
+    display: none;
+    position: absolute;
+    background-color: #D8DFE8;
+    bottom: 95px;
+    right: 12.5%;
+    width: 75%;
+    border: 2px solid #0A3871;
+    border-radius: 25px;
+    padding: 5px;
+}
+.enviar-opciones button{
+    width: 22%; 
+    border: none;
+    background-color: #D8DFE8   ;
+}
+.enviar-opciones button img{
+    width: 100%;
+}
+footer{
+    position: relative;
+    margin-top: 20px;
+    height: 100px;
+    background: linear-gradient(#E5E5E5, #aeaeae);
+    padding-top: 50px;
+}
+footer div{
+    width: 60%;
+    margin: 0 20%;
+    text-align: center;
+}
+footer div button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+footer div img{
+    background-color: transparent;
+}
+footer p{
+    position: absolute;
+    text-align: center;
+    bottom: 2px;
+    color: white;
+    width: 100%;
+}
+
+@media screen and (max-width:850px) {
+    section{
+        display: block;
+    }
+    .seccion1{
+        height: 70vh;
+    }
+    .seccion2{
+        height: 30vh;
+    }
+    .ingresar{
+        position: relative;
+        height: 70%;
+        width: 100%;
+    }
+    .ingresar img{
+        left: 10px;
+    }
+    .ingresar textarea{
+        position: absolute;
+        bottom: 0;
+        width: 70%;
+        height: 60%;
+        margin: 0px 15%;
+    }
+    .tipo-encriptacion{
+        position: absolute;
+        right: 10px;
+        text-align: center;
+    }
+    .tipo-encriptacion label{
+        display: block;     
+    }
+    .area-botones{
+        height: 30%;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .letras{
+        width: 100%;
+        height: 20%;
+    }
+    .botones{
+        width: 100%;
+        height: 50%;
+        margin-top: 0px;
+    }
+    .boton-encriptar, .boton-desencriptar{
+        width: 40%;
+        margin: 0px 5%;
+        padding: 1em 1.5em;
+        height: auto;
+    }
+    .encriptacion-AES{
+        top: 0;
+        border: none;
+    }
+    .no-texto{
+        top: 42vh;
+    }
+    .clave{
+        display: none;
+        justify-content: center;
+        position: static;
+        height: 20%;
+        width: 100%;
+    }
+    .clave p{
+        font-size: 1.2em;
+        padding: .5em;
+    }
+    .resultado{
+        position: relative;
+        width: 85%;
+        height: 100%;
+        margin: 0px 5%;
+        border: .5% solid #D8DFE8;
+        padding: 0px 2%;
+    }
+    .area-texto{
+        width: 80%;
+        height: 60%;
+        position: absolute;
+        top: 0px;
+        margin: 5px 10%;
+        padding: 0px;
+    }
+    .imagen{
+        display: none;
+    }
+    .texto{
+        height: 100%;
+    }
+    .texto textarea{
+        height: 100%;
+        text-align: center;
+        font-weight: bold;
+        color: #0A3871;
+        border: none;
+        font-size: 20px;
+    }
+    .area-copiar{
+        position: absolute;
+        bottom: 10px;
+        height: 35%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .boton-copiar{
+        background-color: white;
+        color: #0A3871;
+        border: 2px solid #0A3871;
+        border-radius: 24px;
+        width: 70%;
+        padding: 5% 0px;
+        height: 100%;
+    }
+    .boton-enviar{
+        right: 20px;
+        height: 100%;
+    }
+    .enviar-opciones{
+        display: none;
+        position: absolute;
+        background-color: #D8DFE8;
+        bottom: 40%;
+        right: 10px;
+        width: 12%;
+        border: 2px solid #0A3871;
+        border-radius: 25px;
+        padding: 10px;
+    }
+    .enviar-opciones button{
+        display: block;
+        width: 100%; 
+        border: none;
+        background-color: #D8DFE8   ;
+    }
+    .enviar-opciones button img{
+        width: 100%;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="viewport" content="width=device-width">
+		<title>Encriptador de texto</title>
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body id="body">
+		<div id="cargando">
+			<div id="Encriptador">Encriptador</div>
+			<div id="barra"><div id="barraCarga"></div></div>
+		</div>
+		<section class="seccion1">
+			<div class="ingresar" id="ingresar">
+				<img src="imagenes/Logo-1.png" alt="logo-alura" />
+				<textarea name="" id="ingresarTexto" rows="8" cols="40" placeholder="Ingrese el texto aqui."></textarea>
+				<div class="tipo-encriptacion">
+					<label for="encriptacion" id="tipoLabel">Tipo de encriptacion</label>
+					<select onchange="cambiarModo()" name="encriptacion" id="encriptacion">
+						<option value="normal">Normal</option>
+						<option value="avanzada">Avanzada</option>
+						<option value="superavanzada">Super avanzada</option>
+					</select>
+				</div>
+			</div>
+			<div class="area-botones">
+				<div class="letras">
+					<img src="imagenes/bi_exclamation-circle-fill.png" alt="">
+					<p id="minusculas">Solo letras minusculas y sin acentos</p>
+				</div>
+				<div class="botones">
+					<button type="button" class="boton-encriptar" id="botonEncriptar">Encriptar</button>
+					<div class="encriptacion-AES" id="encriptacionAES">Encriptación AES (Advanced Encryption Standard)</div>
+					<div class="no-texto" id="noTexto">No has introducido un texto!</div>
+					<button type="button" class="boton-desencriptar" id="botonDesencriptar">Desencriptar</button>
+				</div>
+				<div class="clave" id="clave"><p>Clave:</p><input id="claveInput" type="text"></div>
+			</div>
+		</section>
+		<section class="seccion2">
+			<div class="resultado" id="resultado">
+				<div class="area-texto">
+					<div class="imagen" id="imagen">
+						<img src="imagenes/Muñeco.png" alt="Muneco">
+					</div>
+					<div class="texto">
+						<textarea name="" cols="30" rows="10" id="textAreaResultado" readonly>
+							Ningun mensaje fue encontrado
+							Ingrese el texto que deseé encriptar o desencriptar
+						</textarea>
+					</div>
+				</div>
+				<div class="area-copiar">
+					<button type="button" class="boton-copiar" id="botonCopiar">Copiar</button>
+					<button type="button" class="boton-enviar" id="botonEnviar"><img src="imagenes/enviar.png" alt="enviar"></button>
+				</div>
+				<div class="enviar-opciones" id="enviarOpciones">
+					<button><img src="imagenes/whatsapp.png" alt="whatsapp" id="whatsapp"></button>
+					<button><img src="imagenes/telegram.png" alt="telegram" id="telegram"></button>
+				</div>
+				<div>
+
+				</div>
+			</div>
+		</section>
+		<footer id="fotter">
+			<div class="contacto">
+				<button id="github"><img src="imagenes/github.png" alt="enlace github"></button>
+				<button id="portafolio"><img src="imagenes/portafolio.png" alt="enlace portafolio"></button>
+				<button id="linkedin"><img src="imagenes/linkedin.png" alt=""></button>
+			</div>
+			<p>Creado por Adolfo Angel Monzon Hernandez<br>Para el programa Oracle One Education
+			</p>
+		</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
