@@ -40,7 +40,7 @@ section{
 .ingresar{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 70vw;
     height: 80vh;
 }
@@ -50,7 +50,7 @@ section{
     left: 40px;
 }
 .ingresar textarea{
-    display: block;
+    display: inline-block;
     background-color: #E5E5E5;
     border: none;
     width: 50vw;
@@ -65,13 +65,27 @@ section{
 .ingresar textarea:focus{
     outline: none;
 }
+#botonBorrar{
+    width: 100px;
+    height: 100px;
+}
+#imagen-borrar{
+    position: static;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
 .tipo-encriptacion{
-    margin-top: 40px;
+    position: absolute;
+    top: 10vh;
+    left: 55vw;
 }
 .tipo-encriptacion label{
+    display: block;
     color: #0A3871;
 }
 .tipo-encriptacion select{
+    display: block;
     border: 2px solid #0A3871;
     border-radius: 5px;
     color: #0A3871;
