@@ -5,10 +5,13 @@ var inicio = false;
 //barra de carga
 var barraCarga = document.getElementById("barraCarga");
 var width = 0;
-var id = setInterval(frame, 20);
+var id = setInterval(frame, 10);
 
 //colores originales de la pagina
 var color = ["#E5E5E5", "#FFFFFF", "#0A3871", "#0A3871"];
+
+//dialogo encriptacion
+const inicioEncriptacion = document.getElementById("inicioEncriptacion");
 
 //botones
 const botonEncriptar = document.getElementById("botonEncriptar");
@@ -20,7 +23,10 @@ const botonEnviar = document.getElementById("botonEnviar");
 const enviarOpciones = document.getElementById("enviarOpciones");
 const botonWhatsapp = document.getElementById("whatsapp");
 const botonTelegram = document.getElementById("telegram");
-const botonEmail = document.getElementById("email");
+
+//boton borrar
+const  botonBorrar = document.getElementById("botonBorrar");
+const imagenBorrar = document.getElementById("imagenBorrar");
 
 //Botones de contacto
 const botonGithub = document.getElementById("github");
@@ -29,6 +35,7 @@ const botonLinkedin = document.getElementById("linkedin");
 
 const encriptacionAesDiv = document.getElementById("encriptacionAES");
 const claveDiv = document.getElementById("clave");
+const ingresarTexto = document.getElementById("ingresarTexto");
 const textAreaResultado = document.getElementById("textAreaResultado");
 const imagen = document.getElementById("imagen");
 const noTexto = document.getElementById("noTexto");
@@ -230,13 +237,17 @@ function frame(){
 setTimeout(function(){
   document.getElementById("cargando").style.opacity = "0";
   document.getElementById("cargando").style.visibility = "hidden";
-}, 2000)
+}, 1000)
+
+//dialogo encriptacion
+setTimeout(function(){
+  inicioEncriptacion.style.display = "none";
+}, 5000)
 
 botonEncriptar.onclick = function(){
     var select = document.getElementById("encriptacion");
     var opcionSeleccionada = select.options[select.selectedIndex].value;
-    var ingresarTexto = document.getElementById("ingresarTexto");
-    var textoObtenido = ingresarTexto.value;
+    let textoObtenido = ingresarTexto.value;
     if (textoObtenido != ""){
       if (opcionSeleccionada == "normal"){
         textAreaResultado.value = encriptar(textoObtenido, encriptacionNormal);
@@ -249,11 +260,15 @@ botonEncriptar.onclick = function(){
         inicio = true;
         ingresarTexto.value = ""
       }else if (opcionSeleccionada == "superavanzada"){
-        textAreaResultado.value = encriptarSuperAvanzadaFuncion(textoObtenido, claveInput.value);
-        imagen.style.display = "none"
-        inicio = true;
-        ingresarTexto.value = "";
-        claveInput.value = "";
+        if (claveInput.value == ""){
+          alert("Ingresa una clave para encriptar el texto.")
+        }else{
+          textAreaResultado.value = encriptarSuperAvanzadaFuncion(textoObtenido, claveInput.value);
+          imagen.style.display = "none"
+          inicio = true;
+          ingresarTexto.value = "";
+          claveInput.value = "";
+        }
       }
     }else{
       noTexto.style.display = "block";
@@ -314,6 +329,16 @@ botonDesencriptar.addEventListener("mouseout", function(){
   botonDesencriptar.style.color = "";
 });
 
+//borrar texto
+botonBorrar.onclick = function(){
+  botonBorrar.style.transform = "scale(1.1)";
+  imagenBorrar.style.transform = "scale(1.1)";
+  setTimeout((borrar) => {
+    botonBorrar.style.transform = "scale(1.0)";
+  imagenBorrar.style.transform = "scale(1.0)";
+  }, 300);
+  ingresarTexto.value = "";
+}
 
 botonCopiar.onclick = function(){
   if (inicio){

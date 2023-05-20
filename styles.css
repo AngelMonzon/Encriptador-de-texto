@@ -66,19 +66,24 @@ section{
     outline: none;
 }
 #botonBorrar{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
-#imagen-borrar{
+#imagenBorrar{
     position: static;
     display: inline-block;
     width: 100%;
     height: auto;
+    background-color: transparent;
 }
 .tipo-encriptacion{
     position: absolute;
     top: 10vh;
     left: 55vw;
+    text-align: center;
 }
 .tipo-encriptacion label{
     display: block;
@@ -89,6 +94,24 @@ section{
     border: 2px solid #0A3871;
     border-radius: 5px;
     color: #0A3871;
+}
+#inicioEncriptacion{
+    position: absolute;
+    top: 20vh;
+    left: 55vw;
+    text-align: center;
+    border: 2px solid #0A3871;
+    padding: 5px;
+    border-radius: 8px;
+}
+#flecha{
+    display: block;
+    position: static;
+    height: 4vh;
+    margin: 0px auto;
+}
+#inicioEncriptacion p{
+    display: block;
 }
 .area-botones{
     width: 70vw;
@@ -108,6 +131,7 @@ section{
     width: 70vw;
     height: 20vh;
     margin-top: 15px;
+    gap: 20px;
 }
 .boton-encriptar{
     background-color: #0A3871;
@@ -266,7 +290,8 @@ section{
 .enviar-opciones button{
     width: 22%; 
     border: none;
-    background-color: #D8DFE8   ;
+    background-color: #D8DFE8;
+    cursor: pointer;
 }
 .enviar-opciones button img{
     width: 100%;
