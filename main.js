@@ -2,6 +2,9 @@
 
 var inicio = false;
 
+//seleccionar tipo de encripacion
+var select = document.getElementById("encriptacion");
+
 //barra de carga
 var barraCarga = document.getElementById("barraCarga");
 var width = 0;
@@ -164,8 +167,10 @@ function cambiarModo(){
 
 //Funcion para convertir el texto a minusculas y no admitir caracteres especiales
 ingresarTexto.addEventListener("input",  function(){
-  let texto = ingresarTexto.value.toLowerCase();
-  ingresarTexto.value = texto.replace(/[^a-zA-Z ]/g, '');
+  if (select.value == "normal" || select.value == "avanzada"){
+    let texto = ingresarTexto.value.toLowerCase();
+    ingresarTexto.value = texto.replace(/[^a-zA-Z ]/g, '');
+  }
 })
 
 
@@ -322,7 +327,7 @@ botonDesencriptar.onclick = function(){
     }else if (opcionSeleccionada == "superavanzada"){
       textAreaResultado.value = desencriptarSuperAvanzadaFuncion(textoObtenido, claveInput.value);
       if(textAreaResultado.value == ""){
-        alert("Clave incorrecta");
+        alert("Clave incorrecta o texto mal introducido");
       }
       imagen.style.display = "none";
       inicio = true;
