@@ -238,6 +238,20 @@ function frame(){
   }
 }
 
+//Funcion para no aceptar caracteres especiales
+function quitarCaracteresEspeciales(input) {
+  // Remover acentos y caracteres especiales utilizando una expresión regular
+  let inputLimpio = input.replace(/[^\w\s]/gi, '');
+  return inputLimpio;
+}
+
+ingresarTexto.addEventListener('input', function(event) {
+  let inputValue = event.target.value;
+  let textoLimpio = quitarCaracteresEspeciales(inputValue);
+  event.target.value = textoLimpio;
+});
+
+
 
 
 //pantalla de inicio
