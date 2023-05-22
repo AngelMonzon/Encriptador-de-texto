@@ -162,6 +162,13 @@ function cambiarModo(){
   footer.style.backgroundImage = "linear-gradient(" + color[0] + ", " + color[4] + ")";
 }
 
+//Funcion para convertir el texto a minusculas y no admitir caracteres especiales
+ingresarTexto.addEventListener("input",  function(){
+  let texto = ingresarTexto.value.toLowerCase();
+  ingresarTexto.value = texto.replace(/[^a-zA-Z ]/g, '');
+})
+
+
 function encriptar(texto, encriptacion){
   let stringEncriptada = texto.toLowerCase();
   for (let i = 0;i < encriptacion.length;i++){
@@ -238,18 +245,6 @@ function frame(){
   }
 }
 
-//Funcion para no aceptar caracteres especiales
-function quitarCaracteresEspeciales(input) {
-  // Remover acentos y caracteres especiales utilizando una expresión regular
-  let inputLimpio = input.replace(/[^\w\s]/gi, '');
-  return inputLimpio;
-}
-
-ingresarTexto.addEventListener('input', function(event) {
-  let inputValue = event.target.value;
-  let textoLimpio = quitarCaracteresEspeciales(inputValue);
-  event.target.value = textoLimpio;
-});
 
 
 
