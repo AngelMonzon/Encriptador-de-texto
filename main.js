@@ -116,23 +116,30 @@ function cambiarModo(){
   var resultado = document.getElementById("resultado")
   var body = document.getElementById("body");
   var footer = document.getElementById("fotter");
+  var imagenBasura = document.getElementById("imagenBorrar");
 
   var colorNormal = ["#E5E5E5", "#FFFFFF", "#0A3871", "#0A3871", "#aeaeae"];
   var colorAvanzada = ["#1E2952", "#CCCCCC", "#006400", "#000000", "#48547B"];
-  var colorSuperAvanzada = ["#000000", "#333333", "#1E2952", "#FFFFFF", "#666666"];
+  var colorSuperAvanzada = ["#000000", "#333333", "#4260cd", "#FFFFFF", "#666666"];
   
   if (opcionSeleccionada === "normal"){
     color = colorNormal;
     encriptacionAesDiv.style.display = "none";
     claveDiv.style.display = "none";
+    imagenBasura.src = "imagenes/borrar.png";
+    textAreaResultado.value = "";
   } else if (opcionSeleccionada === "avanzada") {
     color = colorAvanzada;
     encriptacionAesDiv.style.display = "none";
     claveDiv.style.display = "none";
+    imagenBasura.src = "imagenes/borrar.png"
+    textAreaResultado.value = "";
   } else if (opcionSeleccionada === "superavanzada"){
     color = colorSuperAvanzada;
     encriptacionAesDiv.style.display = "block";
     claveDiv.style.display = "flex";
+    imagenBasura.src = "imagenes/borrar2.png"
+    textAreaResultado.value = "";
   }
   body.style.backgroundColor = color[0];
   tipoLabel.style.color = color[2];
@@ -377,7 +384,7 @@ botonTelegram.onclick = function(){
 //Funciones de contacto
 
 botonGithub.onclick = function(){
-  window.open("github.com")
+  window.open("https://github.com/AngelMonzon/Encriptador-de-texto")
 }
 botonPortafolio.onclick = function(){
   window.open("mi-portafolio.com")
